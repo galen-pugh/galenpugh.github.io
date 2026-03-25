@@ -207,11 +207,6 @@
         <div class="panel">
           <h2>Connect with me</h2>
 
-          <p>
-            <button class="copy-email" onclick="copyEmail()">hello@galenpugh.com</button>
-            <span class="copy-note" id="copy-note">Click to copy email</span>
-          </p>
-
           <form
             action="https://formspree.io/f/mojpakyr"
             method="POST"
@@ -238,41 +233,5 @@
       </section>
     </main>
   </div>
-
-  <script>
-    function copyEmail() {
-      const email = "hello@galenpugh.com";
-      const note = document.getElementById("copy-note");
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(email).then(function () {
-          note.textContent = "Email copied";
-        }).catch(function () {
-          note.textContent = "Unable to copy";
-        });
-      } else {
-        const textArea = document.createElement("textarea");
-        textArea.value = email;
-        textArea.style.position = "fixed";
-        textArea.style.left = "-9999px";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-
-        try {
-          document.execCommand("copy");
-          note.textContent = "Email copied";
-        } catch (err) {
-          note.textContent = "Unable to copy";
-        }
-
-        document.body.removeChild(textArea);
-      }
-
-      setTimeout(function () {
-        note.textContent = "Click to copy email";
-      }, 2000);
-    }
-  </script>
 </body>
 </html>
