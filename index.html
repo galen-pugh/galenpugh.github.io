@@ -5,57 +5,300 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galen Pugh</title>
   <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #111;
-      max-width: 600px;
-      margin: 80px auto;
-      padding: 0 20px;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, #eff6ff 0, transparent 35%),
+        radial-gradient(circle at bottom right, #eef2ff 0, transparent 30%),
+        var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      font-weight: 600;
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
     }
 
-    .role {
-      color: #444;
-      margin-bottom: 20px;
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 56px 32px 40px;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(99, 102, 241, 0.05)),
+        #ffffff;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.4rem, 6vw, 4.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .button {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
+    }
+
+    .button-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .content {
+      padding: 0 32px 36px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      background: #fff;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 0.92rem;
     }
 
     a {
-      color: #111;
-      text-decoration: none;
+      color: var(--accent);
     }
 
-    a:hover {
-      text-decoration: underline;
+    .footer {
+      margin-top: 22px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--muted);
     }
 
-    .quote {
-      margin-top: 40px;
-      color: #555;
-      font-style: italic;
+    @media (max-width: 760px) {
+      .hero {
+        padding: 42px 22px 28px;
+      }
+
+      .content {
+        padding: 0 22px 24px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .subtitle {
+        font-size: 1.03rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Galen Pugh</h1>
+  <div class="wrap">
+    <main class="card">
+      <section class="hero">
+        <div class="eyebrow">Sales • AI • Partnerships</div>
+        <h1>Galen Pugh</h1>
+        <p class="subtitle">
+          Sales leader focused on AI, data, partnerships, and practical growth.
+          Also involved in mission-driven community work in Philadelphia.
+        </p>
 
-  <p class="role">
-    Head of Sales at Bizminer<br>
-    Director of Finance at The Everywhere Project
-  </p>
+        <div class="actions">
+          <a class="button" href="mailto:galendpugh@gmail.com">Email Me</a>
+          <a class="button-secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </section>
 
-  <p>
-    <a href="mailto:hello@galenpugh.com">hello@galenpugh.com</a>
-  </p>
+      <section class="content">
+        <div class="grid">
+          <div class="panel">
+            <h2>About</h2>
+            <p>
+              Head of Sales at Bizminer, with a focus on data-driven products,
+              partnerships, and helping organizations make smarter business decisions.
+            </p>
+            <p>
+              Also serves as Director of Finance at The Everywhere Project, supporting
+              harm reduction, food service, and community outreach.
+            </p>
+            <p class="muted">
+              Interested in AI tools, strategic partnerships, and building useful things that actually solve problems.
+            </p>
+          </div>
 
-  <p class="quote">
-    "Do good work and be easy to work with."
-  </p>
+          <div class="panel">
+            <h2>Currently focused on</h2>
+            <div class="tag-row">
+              <span class="tag">AI tools</span>
+              <span class="tag">Partnerships</span>
+              <span class="tag">Sales strategy</span>
+              <span class="tag">Community impact</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="panel">
+            <h2>Work</h2>
+            <ul class="list">
+              <li>
+                <span class="label">Bizminer</span>
+                Sales leadership, product positioning, partnerships, and growth strategy.
+              </li>
+              <li>
+                <span class="label">The Everywhere Project</span>
+                Finance leadership supporting outreach, food service, and harm reduction work.
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h2>Contact</h2>
+            <p>
+              Best way to reach out:
+              <br />
+              <a href="mailto:galendpugh@gmail.com">galendpugh@gmail.com</a>
+            </p>
+            <p class="muted">
+              You can also connect on LinkedIn.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer">
+          galenpugh.com
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
