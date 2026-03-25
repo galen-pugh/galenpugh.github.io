@@ -20,10 +20,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -115,6 +111,54 @@
       vertical-align: middle;
     }
 
+    .contact-form {
+      margin-top: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-form label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .submit-button {
+      width: fit-content;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+    }
+
     .footer {
       margin-top: 22px;
       text-align: center;
@@ -161,9 +205,31 @@
         </div>
 
         <div class="panel">
-          <h2>Best way to contact me</h2>
-          <button class="copy-email" onclick="copyEmail()">hello@galenpugh.com</button>
-          <span class="copy-note" id="copy-note">Click to copy email</span>
+          <h2>Connect with me</h2>
+
+          <p>
+            <button class="copy-email" onclick="copyEmail()">hello@galenpugh.com</button>
+            <span class="copy-note" id="copy-note">Click to copy email</span>
+          </p>
+
+          <form
+            action="https://formspree.io/f/mojpakyr"
+            method="POST"
+            class="contact-form"
+          >
+            <input type="hidden" name="_subject" value="New message from galenpugh.com" />
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="submit-button">Send message</button>
+          </form>
         </div>
 
         <div class="footer">
